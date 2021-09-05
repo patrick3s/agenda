@@ -6,7 +6,7 @@ import 'package:image_picker/image_picker.dart';
 abstract class ContractRegisterUI {
   refresh();
   success();
-  fail();
+  fail(String text);
 }
 
 class PresenterRegisterUI {
@@ -21,20 +21,20 @@ class PresenterRegisterUI {
   createContact() async{
     final result  = await _controller.create();
     if(result is SuccessContactState) {
-      Modular.to.pop();
+      Modular.to.popUntil((route) => route.isFirst);
       _contract.success();
       _controller.getAll();
     }
-    if(result is ErrorContactState) _contract.fail();
+    if(result is ErrorContactState) _contract.fail(result.fail.message);
   }
    updateContact() async{
     final result  = await _controller.update();
     if(result is SuccessContactState) {
-      Modular.to.pop();
+      Modular.to.popUntil((route) => route.isFirst);
       _contract.success();
       _controller.getAll();
     }
-    if(result is ErrorContactState) _contract.fail();
+    if(result is ErrorContactState) _contract.fail(result.fail.message);
   }
 
    deleteContact() async{
@@ -45,6 +45,6 @@ class PresenterRegisterUI {
       _controller.getAll();
       
     }
-    if(result is ErrorContactState) _contract.fail();
+    if(result is ErrorContactState) _contract.fail(result.fail.message);
   }
 }

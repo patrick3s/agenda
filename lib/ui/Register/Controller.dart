@@ -22,7 +22,8 @@ class ControllerRegisterUI {
     try{
       final file = await _picker.getImage(source:source);
     if(file != null){
-      final byte64 = base64Encode(await file.readAsBytes());
+      final byteToEncode =await file.readAsBytes();
+      final byte64 = base64Encode(byteToEncode);
       contactModel?.photoImg = byte64;
     }
     }catch(e){

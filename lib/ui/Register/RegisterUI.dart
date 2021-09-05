@@ -166,11 +166,11 @@ _button(String label, Color color, Function() onTap, IconData icon){
 }
 
   @override
-  fail() {
+  fail(String text) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         backgroundColor: Colors.red,
-        content: Text('Falha ao  realizada ação',
+        content: Text(text,
         style: TextStyle(
           fontSize: 17,
           fontWeight: FontWeight.bold,
