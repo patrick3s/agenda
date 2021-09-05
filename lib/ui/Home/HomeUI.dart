@@ -136,7 +136,8 @@ class _HomeUIState extends State<HomeUI> {
                 IconButton(
                     onPressed: () async {
                       final url = "tel:${contact.phoneCel}";
-                      if (await canLaunch(url)) {
+                      final result = await canLaunch(url);
+                      if (result) {
                         await launch(url);
                       } else {
                         throw 'Could not launch $url';

@@ -10,37 +10,43 @@ class ControllerRegisterUI {
   ContactModel? contactModel;
   final form = GlobalKey<FormState>();
   final _picker = ImagePicker();
+  Map<String,dynamic> contact = {};
   ControllerRegisterUI(this._bloc, this.contactModel) {
-    if (contactModel == null){
-      contactModel = ContactModel();
-    }else{
-      contactModel = ContactModel.fromMap(contactModel!.toMap());
+    if (contactModel != null){
+      contact.addAll(contactModel!.toMap());
     }
+    print(contact);
   }
 
   Future<void> getImagePickerSource({required ImageSource source}) async {
     try{
       final file = await _picker.getImage(source:source);
+      print(file);
     if(file != null){
-      final byteToEncode =await file.readAsBytes();
+      try{
+        final byteToEncode =await file.readAsBytes();
       final byte64 = base64Encode(byteToEncode);
-      contactModel?.photoImg = byte64;
+      contact["photoImg"] = byte64;
+      }catch(e){
+        print(e);
+      }
+      
     }
     }catch(e){
-     
+     print(e);
     }
     
   }
 
   Future<ContactState?> create()async{
-    if(form.currentState!.validate()) return await _bloc.createContact(contactModel!.toMap());
+    if(form.currentState!.validate()) return await _bloc.createContact(contact);
     
   }
   Future<ContactState?> update()async{
-    if(form.currentState!.validate()) return await _bloc.updateContact(contactModel!.toMap());
+    if(form.currentState!.validate()) return await _bloc.updateContact(contact);
   }
   Future<ContactState> delete()async{
-    return await _bloc.deleteContact(contactModel!.toMap());
+    return await _bloc.deleteContact(contact);
   }
   Future<ContactState> getAll()async{
     return await _bloc.getAllContacts();

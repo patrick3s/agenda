@@ -9,10 +9,11 @@ class ImgContact extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final empty = img ?? '';
     return Container(
       height: size,
       width: size,
-      child: img == null ? CircleAvatar(
+      child: img == null || empty.isEmpty ? CircleAvatar(
         radius: size,
         backgroundColor: Colors.grey.withOpacity(.08),
         child: Icon(Icons.person,

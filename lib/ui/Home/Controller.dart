@@ -26,7 +26,7 @@ class ControllerHomeUI {
   }
 
   _orderAllContacts(List<ContactEntity> contactsToOrderByName ){
-    Comparator<ContactEntity> comparator = (a,b) => a.name!.compareTo(b.name!);
+    Comparator<ContactEntity> comparator = (a,b) => a.name!.toUpperCase().compareTo(b.name!.toUpperCase());
     contactsToOrderByName.sort(comparator);
     form.currentState?.didChange(contactsToOrderByName);
   }

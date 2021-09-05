@@ -53,7 +53,7 @@ class _RegisterUIState extends State<RegisterUI> implements ContractRegisterUI{
               key: controller.form,
               child: Column(
                   children: [
-                    ImgContact(size: size.height * .2, img: controller.contactModel?.photoImg,),
+                    ImgContact(size: size.height * .2, img: controller.contact['photoImg'],),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -68,22 +68,22 @@ class _RegisterUIState extends State<RegisterUI> implements ContractRegisterUI{
                     ),
                    _inputField(
                      labelText: 'Nome',
-                     initialText: controller.contactModel!.name,
+                     initialText: controller.contact['name'],
                      validator: ValidatorsRegister.mandatory,
                      onChanged: (value){
-                       controller.contactModel!.name =value;
+                       controller.contact['name'] =value;
                      }
                    ),
                    
                    
                    _inputField(
                      labelText: 'Celular',
-                     initialText: controller.contactModel!.phoneCel,
+                     initialText: controller.contact['phoneCel'],
                       mask: [ValidatorsRegister.phoneNumberMask],
                      keyboardType: TextInputType.number,
                      validator: ValidatorsRegister.phoneNumber,
                      onChanged: (value){
-                       controller.contactModel!.phoneCel =value;
+                       controller.contact['phoneCel'] =value;
                      }
                    ),
                    StreamBuilder<ContactState>(

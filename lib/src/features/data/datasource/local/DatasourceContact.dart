@@ -15,15 +15,16 @@ class DatasourceContact extends IDatasourceContact {
 
   static const String _PHOTOIMG = "photoImg";
   static const String _TABLE = "CONTACTS";
-  static const String _DB_NAME= "contacts_DB.db";
+  static const String _DB_NAME= "contactdb.db";
 
   
   @override
   Future<ContactEntity> create(Map<String, dynamic> data) async{
+    data.remove('id');
     var dbClient = await _getDb;
     final  result = await dbClient?.insert(_TABLE, data);
     
-    return ContactModel.fromMap(data..['id'] = result.toString());
+    return ContactModel.fromMap(data..['id'] = result?.toString());
   }
 
   @override
@@ -38,8 +39,11 @@ class DatasourceContact extends IDatasourceContact {
   Future<List<ContactEntity>> read() async{
     var dbClient = await _getDb;
     List<Map<String,dynamic>> maps = await dbClient!.query(_TABLE,columns: [_ID,_NAME,_PHONECEL,_PHOTOIMG]);
-
-    return maps.map((e) => ContactModel.fromMap(e)).toList();
+    List<ContactEntity> contacts = [];
+    for( var i = 0 ; i < maps.length ; i++){
+      contacts.add(ContactModel.fromMap(maps[i]));
+    }
+    return contacts;
   }
 
   @override
@@ -62,7 +66,6 @@ class DatasourceContact extends IDatasourceContact {
     await db.execute(
       'CREATE TABLE $_TABLE ($_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,$_NAME TEXT, $_PHONECEL TEXT, TEXT,$_PHOTOIMG)');
   }
-
   Future<Database?> get _getDb async{
     if(_db != null){
       return _db;

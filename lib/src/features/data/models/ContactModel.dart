@@ -19,8 +19,8 @@ class ContactModel extends ContactEntity {
 
   Map<String, dynamic> toMap() {
     return {
-      'id': id,
-      'photoImg': photoImg,
+      'id': int.parse(id ?? '0'),
+      'photoImg': photoImg ?? '',
       'name': name,
       'phoneCel': phoneCel,
     };
@@ -29,7 +29,7 @@ class ContactModel extends ContactEntity {
   factory ContactModel.fromMap(Map<String, dynamic> map) {
     return ContactModel(
       id: map['id'].toString(),
-      photoImg: map['photoImg'],
+      photoImg: map['photoImg'] != null ? map['photoImg'].toString().isEmpty ? null : map['photoImg'] : null,
       name: map['name'],
       phoneCel: map['phoneCel'],
     );
