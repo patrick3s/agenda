@@ -21,11 +21,11 @@ class BlocContact {
   Stream<List<ContactEntity>> get stream => _controllerStream.stream;
 
   Future<ContactState> createContact(Map<String,dynamic> data)async{
-    print(data);
+
     _controllerState.add(LoadingContactState());
     final result = await usecase.create(data);
     return result.fold((l) {
-      print(l.message);
+
       final _state = ErrorContactState(l);
       _controllerState.add(_state);
       return _state;

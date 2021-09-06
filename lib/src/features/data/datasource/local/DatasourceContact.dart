@@ -1,5 +1,7 @@
 import 'package:agendateste/src/core/datasource/IDatasourceContact.dart';
 import 'package:agendateste/src/core/domain/entity/ContactEntity.dart';
+import 'package:agendateste/src/core/domain/error/Failure.dart';
+import 'package:agendateste/src/core/domain/error/MessageError.dart';
 import 'package:agendateste/src/features/data/models/ContactModel.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
@@ -22,6 +24,14 @@ class DatasourceContact extends IDatasourceContact {
   Future<ContactEntity> create(Map<String, dynamic> data) async{
     data.remove('id');
     var dbClient = await _getDb;
+    final exists = await dbClient?.query(_TABLE,
+    columns: [_ID,],
+    where: '$_PHONECEL = ?',
+    whereArgs: [data[_PHONECEL]]
+    );
+    if(exists?.isNotEmpty == true){
+      throw Failure(MessageError.contactExist);
+    }
     final  result = await dbClient?.insert(_TABLE, data);
     
     return ContactModel.fromMap(data..['id'] = result?.toString());

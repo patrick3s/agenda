@@ -13,7 +13,9 @@ class RepositoryContact extends IRepositoryContact {
   Future<Either<Failure, ContactEntity>> create(Map<String, dynamic> data) async{
     try{
       return Right(await _datasource.create(data));
-    }catch(e){
+    } on Failure  catch(e) {
+      return Left(e);
+    } catch(e){
       return Left(Failure(e.toString()));
     }
   }
@@ -22,7 +24,9 @@ class RepositoryContact extends IRepositoryContact {
   Future<Either<Failure, bool>> delete(Map<String, dynamic> data) async{
    try{
       return Right(await _datasource.delete(data));
-    }catch(e){
+    }on Failure  catch(e) {
+      return Left(e);
+    } catch(e){
       return Left(Failure(e.toString()));
     }
   }
@@ -31,7 +35,9 @@ class RepositoryContact extends IRepositoryContact {
   Future<Either<Failure, List<ContactEntity>>> read() async{
     try{
       return Right(await _datasource.read());
-    }catch(e){
+    }on Failure  catch(e) {
+      return Left(e);
+    } catch(e){
       return Left(Failure(e.toString()));
     }
   }
@@ -40,7 +46,9 @@ class RepositoryContact extends IRepositoryContact {
   Future<Either<Failure, bool>> update(Map<String, dynamic> data) async{
     try{
       return Right(await _datasource.update(data));
-    }catch(e){
+    }on Failure  catch(e) {
+      return Left(e);
+    } catch(e){
       return Left(Failure(e.toString()));
     }
   }

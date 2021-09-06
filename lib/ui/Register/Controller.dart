@@ -15,7 +15,7 @@ class ControllerRegisterUI {
     if (contactModel != null){
       contact.addAll(contactModel!.toMap());
     }
-    print(contact);
+
   }
 
   Future<void> getImagePickerSource({required ImageSource source}) async {
@@ -40,7 +40,6 @@ class ControllerRegisterUI {
 
   Future<ContactState?> create()async{
     if(form.currentState!.validate()) return await _bloc.createContact(contact);
-    
   }
   Future<ContactState?> update()async{
     if(form.currentState!.validate()) return await _bloc.updateContact(contact);
