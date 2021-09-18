@@ -2,13 +2,8 @@ name: CI/CD
 
 on:
   push:
-    branches:
-      - develop
-      - main
-  pull_request:
-    branches:
-      - develop
-      - main
+    tags:
+      - v*
 
 jobs:
   flutter_test:
@@ -24,7 +19,8 @@ jobs:
           channel: "stable"
       - run: flutter pub get
       - run: flutter analyze
-      
+      - run: flutter format --dry-run --set-exit-if-changed lib/
+      - run: flutter format --dry-run --set-exit-if-changed test/
       - run: flutter test --coverage
       - run: flutter test --machine > test-results.json
       - uses: dorny/test-reporter@v1.4.2
