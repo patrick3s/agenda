@@ -1,0 +1,31 @@
+{"protocolVersion":"0.1.1","runnerVersion":"1.17.10","pid":3108,"type":"start","time":0}
+{"suite":{"id":0,"platform":"vm","path":"/Users/patrick/Documents/projetos/agendateste/test/src/features/domain/usecase/usecase_contact_test.dart"},"type":"suite","time":0}
+{"test":{"id":1,"name":"loading /Users/patrick/Documents/projetos/agendateste/test/src/features/domain/usecase/usecase_contact_test.dart","suiteID":0,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":1}
+{"count":1,"time":11,"type":"allSuites"}
+
+[{"event":"test.startedProcess","params":{"observatoryUri":"http://127.0.0.1:50041/155w4BQ9H4U=/"}}]
+{"testID":1,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":2431}
+{"group":{"id":2,"suiteID":0,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":11,"line":null,"column":null,"url":null},"type":"group","time":2436}
+{"test":{"id":3,"name":"test return list all contacts","suiteID":0,"groupIDs":[2],"metadata":{"skip":false,"skipReason":null},"line":34,"column":3,"url":"file:///Users/patrick/Documents/projetos/agendateste/test/src/features/domain/usecase/usecase_contact_test.dart"},"type":"testStart","time":2437}
+{"testID":3,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":2486}
+{"test":{"id":4,"name":"test create contact","suiteID":0,"groupIDs":[2],"metadata":{"skip":false,"skipReason":null},"line":43,"column":3,"url":"file:///Users/patrick/Documents/projetos/agendateste/test/src/features/domain/usecase/usecase_contact_test.dart"},"type":"testStart","time":2486}
+{"testID":4,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":2494}
+{"test":{"id":5,"name":"test update contact","suiteID":0,"groupIDs":[2],"metadata":{"skip":false,"skipReason":null},"line":52,"column":3,"url":"file:///Users/patrick/Documents/projetos/agendateste/test/src/features/domain/usecase/usecase_contact_test.dart"},"type":"testStart","time":2494}
+{"testID":5,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":2499}
+{"test":{"id":6,"name":"test delete contact","suiteID":0,"groupIDs":[2],"metadata":{"skip":false,"skipReason":null},"line":61,"column":3,"url":"file:///Users/patrick/Documents/projetos/agendateste/test/src/features/domain/usecase/usecase_contact_test.dart"},"type":"testStart","time":2500}
+{"testID":6,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":2504}
+{"test":{"id":7,"name":"test error list all contacts","suiteID":0,"groupIDs":[2],"metadata":{"skip":false,"skipReason":null},"line":70,"column":3,"url":"file:///Users/patrick/Documents/projetos/agendateste/test/src/features/domain/usecase/usecase_contact_test.dart"},"type":"testStart","time":2505}
+{"testID":7,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":2509}
+{"test":{"id":8,"name":"test error create contact","suiteID":0,"groupIDs":[2],"metadata":{"skip":false,"skipReason":null},"line":79,"column":3,"url":"file:///Users/patrick/Documents/projetos/agendateste/test/src/features/domain/usecase/usecase_contact_test.dart"},"type":"testStart","time":2510}
+{"testID":8,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":2513}
+{"test":{"id":9,"name":"test error update contact","suiteID":0,"groupIDs":[2],"metadata":{"skip":false,"skipReason":null},"line":88,"column":3,"url":"file:///Users/patrick/Documents/projetos/agendateste/test/src/features/domain/usecase/usecase_contact_test.dart"},"type":"testStart","time":2514}
+{"testID":9,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":2518}
+{"test":{"id":10,"name":"test error delete contact","suiteID":0,"groupIDs":[2],"metadata":{"skip":false,"skipReason":null},"line":97,"column":3,"url":"file:///Users/patrick/Documents/projetos/agendateste/test/src/features/domain/usecase/usecase_contact_test.dart"},"type":"testStart","time":2518}
+{"testID":10,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":2522}
+{"test":{"id":11,"name":"test return map","suiteID":0,"groupIDs":[2],"metadata":{"skip":false,"skipReason":null},"line":106,"column":5,"url":"file:///Users/patrick/Documents/projetos/agendateste/test/src/features/domain/usecase/usecase_contact_test.dart"},"type":"testStart","time":2522}
+{"testID":11,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":2526}
+{"test":{"id":12,"name":"test return json","suiteID":0,"groupIDs":[2],"metadata":{"skip":false,"skipReason":null},"line":114,"column":6,"url":"file:///Users/patrick/Documents/projetos/agendateste/test/src/features/domain/usecase/usecase_contact_test.dart"},"type":"testStart","time":2526}
+{"testID":12,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":2530}
+{"test":{"id":13,"name":"test return Contact","suiteID":0,"groupIDs":[2],"metadata":{"skip":false,"skipReason":null},"line":123,"column":6,"url":"file:///Users/patrick/Documents/projetos/agendateste/test/src/features/domain/usecase/usecase_contact_test.dart"},"type":"testStart","time":2530}
+{"testID":13,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":2534}
+{"success":true,"type":"done","time":2831}

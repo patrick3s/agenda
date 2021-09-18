@@ -21,7 +21,7 @@ main() {
   });
 
   var data ={
-      'id': "id",
+      'id': 10,
       'photoImg': "photoImg",
       'name': "name",
       'lastName': "lastName",
@@ -102,4 +102,30 @@ main() {
     //asserts
     expect(result.fold(id,id), isA<Failure>());
   });
+
+    test('test return map', ()async{
+      final contact = ContactModel.fromMap(data);
+
+
+      final result = contact.toMap();
+
+      expect(result, isA<Map<String,dynamic>>());
+    });
+     test('test return json', ()async{
+      final contact = ContactModel.fromMap(data);
+
+
+      final result = contact.toJson();
+
+      expect(result, isA<String>());
+    });
+
+     test('test return Contact', ()async{
+      final contact = ContactModel.fromMap(data);
+
+
+      final result = ContactModel.fromJson(contact.toJson());
+
+      expect(result, isA<ContactModel>());
+    });
 }
